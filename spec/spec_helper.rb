@@ -7,7 +7,7 @@ require "dry-types"
 require "bundler/setup"
 require "artisanal-model"
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -21,7 +21,7 @@ RSpec.configure do |config|
   end
 
   if config.files_to_run.one?
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
   config.order = :random
 end

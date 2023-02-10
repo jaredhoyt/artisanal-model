@@ -1,6 +1,6 @@
 module Artisanal
   require_relative "model/builder"
-  require_relative 'model/config'
+  require_relative "model/config"
   require_relative "model/version"
 
   def self.Model(**opts)

@@ -26,30 +26,30 @@ RSpec.describe "Serialization" do
           attribute :money, proc(&:to_i), reader: :private
           attribute :address, Address
           attribute :tags, Array[Tag]
-          attribute :emails, Set[Dry::Types['strict.string']]
-          attribute :job, Dry::Types['hash']
+          attribute :emails, Set[Dry::Types["strict.string"]]
+          attribute :job, Dry::Types["hash"]
         end
       end
     end
   }
 
   let(:data) {{
-    name: 'John Smith',
-    email_address: 'john@example.com',
-    age: '37',
-    money: '10000',
+    name: "John Smith",
+    email_address: "john@example.com",
+    age: "37",
+    money: "10000",
     address: {
-      street: '123 Main St.',
-      city: 'Portland',
-      state: 'OR',
-      zip: '97212'
+      street: "123 Main St.",
+      city: "Portland",
+      state: "OR",
+      zip: "97212"
     },
     tags: Set.new([
       { name: "open-source" },
       { name: "ruby" },
       { name: "developer" }
     ]),
-    emails: ['john@example.com', 'jsmith@example.com'],
+    emails: ["john@example.com", "jsmith@example.com"],
     job: {
       title: "Developer",
       company: "Goldstar"
@@ -57,20 +57,20 @@ RSpec.describe "Serialization" do
   }}
 
   let(:public_attrs) {{
-    name: 'John Smith',
-    email: 'john@example.com',
+    name: "John Smith",
+    email: "john@example.com",
     address: {
-      street: '123 Main St.',
-      city: 'Portland',
-      state: 'OR',
-      zip: '97212'
+      street: "123 Main St.",
+      city: "Portland",
+      state: "OR",
+      zip: "97212"
     },
     tags: [
       { name: "open-source" },
       { name: "ruby" },
       { name: "developer" }
     ],
-    emails: ['john@example.com', 'jsmith@example.com'],
+    emails: ["john@example.com", "jsmith@example.com"],
     job: {
       title: "Developer",
       company: "Goldstar"

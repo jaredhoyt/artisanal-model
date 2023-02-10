@@ -3,7 +3,7 @@ RSpec.describe "Submodels inheriting from other models" do
     Module.new.tap do |mod|
       module mod::Examples
         class Base
-          include Artisanal::Model(defaults: { type: Dry::Types['coercible.string'] })
+          include Artisanal::Model(defaults: { type: Dry::Types["coercible.string"] })
 
           attribute :age, ->(value) { value.to_i }
           attribute :money
@@ -12,7 +12,7 @@ RSpec.describe "Submodels inheriting from other models" do
         class Person < Base
           attribute :name
           attribute :email
-          attribute :money, Dry::Types['coercible.integer']
+          attribute :money, Dry::Types["coercible.integer"]
           attribute :cars
         end
       end
@@ -20,10 +20,10 @@ RSpec.describe "Submodels inheriting from other models" do
   }
 
   let(:data) {{
-    name: 'John Smith',
-    email: 'john@example.com',
-    age: '37',
-    money: '10000',
+    name: "John Smith",
+    email: "john@example.com",
+    age: "37",
+    money: "10000",
     cars: 3
   }}
 

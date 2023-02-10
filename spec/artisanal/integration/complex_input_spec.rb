@@ -6,25 +6,25 @@ RSpec.describe "Basic model attribute definitions" do
           include Artisanal::Model(writable: true)
 
           attribute :name, Dry::Types::Any
-          attribute :email, Dry::Types['string']
+          attribute :email, Dry::Types["string"]
           attribute :age, ->(value) { value.to_i }
-          attribute :money, Dry::Types['coercible.integer']
+          attribute :money, Dry::Types["coercible.integer"]
         end
 
         class Input
           def to_h
             {
-              name: 'John Smith',
-              email: 'john@example.com',
-              age: '37',
-              money: '10000'
+              name: "John Smith",
+              email: "john@example.com",
+              age: "37",
+              money: "10000"
             }
           end
         end
       end
     end
   }
-  
+
   let(:input) { ns::Examples::Input.new }
   let(:person) { ns::Examples::Person.new(input) }
 

@@ -1,6 +1,6 @@
 module Artisanal::Model
-  require_relative 'initializer'
-  require_relative 'model'
+  require_relative "initializer"
+  require_relative "model"
 
   module DSL
     def self.extended(base)

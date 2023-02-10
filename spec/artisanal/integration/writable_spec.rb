@@ -7,31 +7,31 @@ RSpec.describe "A writable model" do
 
           attribute :name, Dry::Types::Any
           attribute :email, Dry::Types::Any
-          attribute :age, Dry::Types['coercible.integer']
-          attribute :money, Dry::Types['coercible.integer'], writer: false
+          attribute :age, Dry::Types["coercible.integer"]
+          attribute :money, Dry::Types["coercible.integer"], writer: false
         end
       end
     end
   }
 
   let(:original) {{
-    name: 'John Smith',
-    email: 'john@example.com',
-    age: '37',
-    money: '10000'
+    name: "John Smith",
+    email: "john@example.com",
+    age: "37",
+    money: "10000"
   }}
 
   let(:person) { ns::Examples::Person.new(original) }
 
   it "creates writers for each attribute" do
-    expect { person.name = 'Bob Stevens' }.
+    expect { person.name = "Bob Stevens" }.
       to change { person.name }.
       from(original[:name]).
-      to('Bob Stevens')
+      to("Bob Stevens")
   end
 
   it "uses the attribute type to coerce the value" do
-    expect { person.age = '50' }.
+    expect { person.age = "50" }.
       to change { person.age }.
       from(original[:age].to_i).
       to(50)
@@ -47,9 +47,9 @@ RSpec.describe "A writable model" do
 
   describe "#assign_attributes" do
     let(:updated) {{
-      name: 'Bob Stevens',
-      age: '50',
-      money: '15000'
+      name: "Bob Stevens",
+      age: "50",
+      money: "15000"
     }}
 
     before { person.assign_attributes(updated) }

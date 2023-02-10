@@ -3,13 +3,13 @@ RSpec.describe "Model with default attribute options" do
     Module.new.tap do |mod|
       module mod::Examples
         class Account
-          include Artisanal::Model(defaults: { type: Dry::Types['coercible.integer'] })
+          include Artisanal::Model(defaults: { type: Dry::Types["coercible.integer"] })
 
           attribute :amount
         end
 
         class Person
-          include Artisanal::Model(defaults: { optional: true, type: Dry::Types['coercible.string'] })
+          include Artisanal::Model(defaults: { optional: true, type: Dry::Types["coercible.string"] })
 
           attribute :name
           attribute :email_address, as: :email
@@ -21,12 +21,12 @@ RSpec.describe "Model with default attribute options" do
   }
 
   let(:person_data) {{
-    email_address: 'john@example.com',
+    email_address: "john@example.com",
     age: 37,
-    money: '10000'
+    money: "10000"
   }}
 
-  let(:account_data) {{ amount: '10000' }}
+  let(:account_data) {{ amount: "10000" }}
 
   let(:person) { ns::Examples::Person.new(person_data) }
   let(:account) { ns::Examples::Account.new(account_data)}

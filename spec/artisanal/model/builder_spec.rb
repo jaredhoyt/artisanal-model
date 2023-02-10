@@ -82,16 +82,16 @@ RSpec.describe Artisanal::Model::Builder do
         attribute :age, Dry::Types::Any
       end
     }
-    let(:example) { model.new(name: 'John Smith', email: 'john@example.com', age: 50) }
+    let(:example) { model.new(name: "John Smith", email: "john@example.com", age: 50) }
 
     it "does a mass-assignment for provided attributes" do
-      expect { example.assign_attributes(name: 'Bob Stevens', email: 'bob@example.com') }.
-        to change { example.name }.from('John Smith').to('Bob Stevens').
-        and change { example.email }.from('john@example.com').to('bob@example.com')
+      expect { example.assign_attributes(name: "Bob Stevens", email: "bob@example.com") }.
+        to change { example.name }.from("John Smith").to("Bob Stevens").
+        and change { example.email }.from("john@example.com").to("bob@example.com")
     end
 
     it "does not affect undefined attributes" do
-      expect { example.assign_attributes(name: 'Bob Stevens', email: 'bob@example.com') }.
+      expect { example.assign_attributes(name: "Bob Stevens", email: "bob@example.com") }.
         to_not change { example.age }
     end
   end

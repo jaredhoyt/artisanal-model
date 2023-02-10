@@ -5,7 +5,7 @@ RSpec.describe "Renaming attributes using :from" do
         class Person
           include Artisanal::Model
 
-          attribute :email, Dry::Types['string'], from: :email_address
+          attribute :email, Dry::Types["string"], from: :email_address
         end
       end
     end

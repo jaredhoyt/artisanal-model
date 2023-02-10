@@ -1,7 +1,7 @@
-require 'forwardable'
+require "forwardable"
 
 module Artisanal::Model
-  require_relative 'attribute'
+  require_relative "attribute"
 
   class Model
     extend Forwardable

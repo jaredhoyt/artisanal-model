@@ -1,6 +1,6 @@
 RSpec.describe "Undefined attributes" do
   let(:data) {{
-    name: 'John Smith',
+    name: "John Smith",
     age: nil
   }}
 
@@ -23,7 +23,7 @@ RSpec.describe "Undefined attributes" do
 
     it "includes all attributes when serializing" do
       expect(person.to_h).to eq({
-        name: 'John Smith',
+        name: "John Smith",
         age: nil,
         email: nil
       })
@@ -47,7 +47,7 @@ RSpec.describe "Undefined attributes" do
 
     it "includes only defined attributes when serializing" do
       expect(person.to_h).to eq({
-        name: 'John Smith',
+        name: "John Smith",
         age: nil
       })
     end
@@ -55,7 +55,7 @@ RSpec.describe "Undefined attributes" do
     context "and undefined: true is passed in" do
       it "includes all attributes when serializing" do
         expect(person.to_h(include_undefined: true)).to eq({
-          name: 'John Smith',
+          name: "John Smith",
           age: nil,
           email: nil
         })

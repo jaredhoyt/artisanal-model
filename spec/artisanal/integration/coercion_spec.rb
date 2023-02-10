@@ -29,26 +29,26 @@ RSpec.describe "Model with complex attribute coercion" do
           attribute :address, Address
           attribute :birthday, Birthday
           attribute :tags, Array[Tag]
-          attribute :emails, Set[Dry::Types['strict.string']]
+          attribute :emails, Set[Dry::Types["strict.string"]]
         end
       end
     end
   }
 
   let(:data) {{
-    name: 'John Smith',
+    name: "John Smith",
     address: {
-      street: '123 Main St.',
-      city: 'Portland',
-      state: 'OR',
-      zip: '97212'
+      street: "123 Main St.",
+      city: "Portland",
+      state: "OR",
+      zip: "97212"
     },
     tags: Set.new([
       { name: "open-source" },
       { name: "ruby" },
       { name: "developer" }
     ]),
-    emails: ['john@example.com', 'jsmith@example.com']
+    emails: ["john@example.com", "jsmith@example.com"]
   }}
 
   let(:person) { ns::Examples::Person.new(data) }
@@ -61,13 +61,13 @@ RSpec.describe "Model with complex attribute coercion" do
   it "coerces each element of an array with the first element of the type", :aggregate_failures do
     expect(person.tags).to be_a Array
     expect(person.tags).to all be_a ns::Examples::Tag
-    expect(person.tags.first.name).to eq 'open-source'
+    expect(person.tags.first.name).to eq "open-source"
   end
 
   it "coerces each element of a set with the first element of the type", :aggregate_failures do
     expect(person.emails).to be_a Set
     expect(person.emails).to all be_a String
-    expect(person.emails.first).to eq 'john@example.com'
+    expect(person.emails.first).to eq "john@example.com"
   end
 
   context "when the elements are already class instances" do
@@ -81,12 +81,12 @@ RSpec.describe "Model with complex attribute coercion" do
 
   context "when the enumerable options are empty" do
     let(:data) {{
-      name: 'John Smith',
+      name: "John Smith",
       address: {
-        street: '123 Main St.',
-        city: 'Portland',
-        state: 'OR',
-        zip: '97212'
+        street: "123 Main St.",
+        city: "Portland",
+        state: "OR",
+        zip: "97212"
       }
     }}
 

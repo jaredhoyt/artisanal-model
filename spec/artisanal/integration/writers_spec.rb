@@ -20,10 +20,10 @@ RSpec.describe "Model attribute writers" do
   }
 
   let(:data) {{
-    name: 'John Smith',
-    email: 'john@example.com',
-    age: '37',
-    money: '10000'
+    name: "John Smith",
+    email: "john@example.com",
+    age: "37",
+    money: "10000"
   }}
 
   let(:person) { ns::Examples::Person.new(data) }
@@ -34,9 +34,9 @@ RSpec.describe "Model attribute writers" do
 
   it "creates a public writer when true", :aggregate_failures do
     expect(person.public_methods).to include :email=
-    expect { person.email = 'bob@example.com' }.
+    expect { person.email = "bob@example.com" }.
       to change { person.email }.
-      to('bob@example.com')
+      to("bob@example.com")
     expect { person.address = {} }.
       to change { person.address }.
       to be_a ns::Examples::Address

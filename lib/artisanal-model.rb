@@ -1,1 +1,1 @@
-require_relative 'artisanal/model'
+require_relative "artisanal/model"

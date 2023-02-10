@@ -1,7 +1,7 @@
-require 'dry-initializer'
+require "dry-initializer"
 
 module Artisanal::Model
-  require_relative 'dsl'
+  require_relative "dsl"
 
   class Builder < Module
     attr_reader :config
